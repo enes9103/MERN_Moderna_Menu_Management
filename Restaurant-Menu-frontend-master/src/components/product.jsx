@@ -1,0 +1,136 @@
+import React, { useState, useRef } from "react";
+import axios from "axios";
+import { styled } from "@mui/material/styles";
+import Box from "@mui/material/Box";
+import Paper from "@mui/material/Paper";
+import Grid from "@mui/material/Grid";
+
+const Item = styled(Paper)(({ theme }) => ({
+  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
+  ...theme.typography.body2,
+  padding: theme.spacing(1),
+  textAlign: "center",
+  color: theme.palette.text.secondary,
+}));
+
+const Product = ({ allData, fetchProducts }) => {
+  const { menus, categories, products } = allData;
+  const [product, setProduct] = useState({
+    product: "",
+    price: "",
+    categoryId: "",
+  });
+  const form = useRef();
+
+  const handleProductChange = (event) => {
+    const { name, value } = event.target;
+    setProduct({ ...product, [name]: value });
+  };
+
+  const handleCreateProduct = async (event) => {
+    event.preventDefault();
+    try {
+      const response = await axios.post("http://localhost:5000/product", {
+        product: product.product,
+        price: product.price,
+        categoryId: product.categoryId,
+      });
+
+      if (response.status === 201) {
+        setProduct({
+          product: "",
+          price: "",
+          categoryId: "",
+        });
+
+        fetchProducts();
+      } else {
+        console.error("Failed to create product");
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  return (
+    <Box sx={{ flexGrow: 1 }}>
+      <Box className="step-title">
+        <div className="step-content">
+          <h2>Products</h2>
+        </div>
+      </Box>
+
+      <Grid container spacing={1}>
+        <Grid item xs={6}>
+          <div className="subcat-form-container">
+            <h1>Creat Product</h1>
+            <form
+              className="cat-edit-form2"
+              onSubmit={handleCreateProduct}
+              ref={form}
+            >
+              <div className="username">
+                <label className="About_username">Product name:</label> <br />
+                <input
+                  className="subcat-edit-input"
+                  type="text"
+                  id="username"
+                  placeholder="Product name"
+                  name="product"
+                  value={product.product}
+                  onChange={handleProductChange}
+                />
+              </div>
+              <div>
+                <label className="About_username">Category name:</label>
+                <select
+                  id="category"
+                  name="categoryId"
+                  value={product.categoryId}
+                  onChange={handleProductChange}
+                >
+                  <option value="">Select a category...</option>
+                  {categories.map((category, i) => (
+                    <option key={i} value={category._id}>
+                      {category.category}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              <div className="username">
+                <label className="About_username">Product Price:</label> <br />
+                <input
+                  className="subcat-edit-input"
+                  type="text"
+                  id="username"
+                  placeholder="Price"
+                  name="price"
+                  value={product.price}
+                  onChange={handleProductChange}
+                />
+              </div>
+
+              <button className="subcat-edit-button" type="submit">
+                Create
+              </button>
+            </form>
+          </div>
+        </Grid>
+        <Grid item xs={6}>
+          <div className="list-category">
+            <h3 className="list1">list of Products</h3>
+
+            {products.map((item, i) => (
+              <div className="list2">
+                <p key={i}>{item.product}</p>
+                <p> Price: {item.price} $</p>
+              </div>
+            ))}
+          </div>
+        </Grid>
+      </Grid>
+    </Box>
+  );
+};
+
+export default Product;
