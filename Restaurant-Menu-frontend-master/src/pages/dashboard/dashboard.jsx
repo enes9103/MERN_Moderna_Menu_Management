@@ -134,9 +134,22 @@ export default function HorizontalLinearStepper() {
       ) : (
         <React.Fragment>
           <Typography sx={{ mt: 2, mb: 1 }}>
+            <Box className="step-title">
+              <div className="step-content">
+                <h2>
+                  {activeStep === 0
+                    ? "Categories"
+                    : activeStep === 1
+                    ? "Products"
+                    : "Menus"}
+                </h2>
+              </div>
+            </Box>
+
             <button className="subcat-edit-button1">
               <a href="/userList">User activating list</a>
             </button>
+
             {activeStep === 0 ? (
               <Category allData={allData} fetchCategories={fetchCategories} />
             ) : activeStep === 1 ? (

@@ -1,7 +1,5 @@
 import React, { useState, useRef } from "react";
 import Grid from "@mui/material/Grid";
-import { styled } from "@mui/material/styles";
-import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
 
 const Category = ({ allData, fetchCategories }) => {
@@ -11,14 +9,6 @@ const Category = ({ allData, fetchCategories }) => {
     category: "",
   });
   const form = useRef();
-
-  const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
-    ...theme.typography.body2,
-    padding: theme.spacing(1),
-    textAlign: "center",
-    color: theme.palette.text.secondary,
-  }));
 
   const handleCategoryChange = (event) => {
     const { name, value } = event.target;
@@ -55,12 +45,6 @@ const Category = ({ allData, fetchCategories }) => {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <Box className="step-title">
-        <div className="step-content">
-          <h2>Categories</h2>
-        </div>
-      </Box>
-
       <Grid container spacing={2}>
         <Grid item xs={6}>
           <div className="subcat-form-container">

@@ -2,18 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import Select from "react-select";
 import { Link } from "react-router-dom";
-import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
-import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
-
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: "center",
-  color: theme.palette.text.secondary,
-}));
 
 const Menu = ({ allData, fetchMenus }) => {
   const { menus, categories, products } = allData;
@@ -59,12 +49,6 @@ const Menu = ({ allData, fetchMenus }) => {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <Box className="step-title">
-        <div className="step-content">
-          <h2>Menus</h2>
-        </div>
-      </Box>
-
       <Grid container spacing={1}>
         <Grid item xs={6}>
           <div className="subcat-form-container">
