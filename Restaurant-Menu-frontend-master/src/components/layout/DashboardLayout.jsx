@@ -17,9 +17,9 @@ import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import {
-  mainListItems,
-  secondaryListItems,
-} from "../../pages/dashboard/listItems";
+  mainSidebarListItems,
+  secondarySidebarListItems,
+} from "../sidebar/Sidebar";
 import Dashboard from "../../pages/dashboard/Dashboard";
 import MenuCreator from "../../pages/menuCreator/MenuCreator";
 
@@ -149,9 +149,9 @@ export default function DashboardLayout() {
           </Toolbar>
           <Divider />
           <List component="nav">
-            {mainListItems}
+            {mainSidebarListItems}
             <Divider sx={{ my: 1 }} />
-            {secondaryListItems}
+            {secondarySidebarListItems}
           </List>
         </Drawer>
         <Box
