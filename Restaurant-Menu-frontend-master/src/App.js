@@ -3,27 +3,20 @@ import "./App.css";
 import React from "react";
 import Home from "./pages/home/home.jsx";
 import Login from "./pages/login/login.jsx";
-import Dashboard from "./pages/dashboard/dashboard.jsx";
+import Dashboard from "./pages/dashboard/Dashboard.js";
+import Sidebar from "./components/sidebar/Sidebar.jsx";
 import MenuDetails from "./pages/menuDetails/menuDetails.jsx";
 import UserList from "./pages/userList/userList.jsx";
 import Menu from "./pages/menu/menu.js";
 import DashboardLayout from "./components/layout/DashboardLayout.jsx";
+import MenuCreator from "./pages/menuCreator/MenuCreator.jsx";
 
 function App() {
   return (
     <BrowserRouter>
       <div className="container">
         <Routes>
-          <Route
-            path="/dashboard"
-            element={
-              <DashboardLayout>
-                <Routes>
-                  <Route index element={<Dashboard />} />
-                </Routes>
-              </DashboardLayout>
-            }
-          />
+          <Route path="/dashboard/*" element={<DashboardLayout />} />
           <Route path="/home" element={<Home />} />
           <Route path="/userList" element={<UserList />} />
           <Route path="/" element={<Login />} />

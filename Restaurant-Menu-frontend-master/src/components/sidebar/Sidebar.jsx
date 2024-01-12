@@ -16,7 +16,7 @@ import MailIcon from "@mui/icons-material/Mail";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import HorizontalLinearStepper from "../../pages/dashboard/dashboard";
+import HorizontalLinearStepper from "../../pages/menuCreator/MenuCreator";
 
 const drawerWidth = 240;
 
@@ -89,6 +89,7 @@ function Sidebar(props) {
           </Typography>
         </Toolbar>
       </AppBar>
+      
       <Box
         component="nav"
         sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}

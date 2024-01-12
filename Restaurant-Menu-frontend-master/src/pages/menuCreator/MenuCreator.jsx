@@ -7,14 +7,19 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import "./dashboard.css";
+import "./MenuCreator.css";
 import Category from "../../components/category.jsx";
 import Product from "../../components/product.jsx";
 import Menu from "../../components/menu.jsx";
+import Breadcrumbs from "@mui/material/Breadcrumbs";
+import Link from "@mui/material/Link";
+import HomeIcon from "@mui/icons-material/Home";
+import WhatshotIcon from "@mui/icons-material/Whatshot";
+import GrainIcon from "@mui/icons-material/Grain";
 
 const steps = ["Create Categories", "Create Products", "Create Menu"];
 
-export default function HorizontalLinearStepper() {
+export default function MenuCreator() {
   const [activeStep, setActiveStep] = useState(0);
   const [skipped, setSkipped] = useState(new Set());
   const [categories, setCategories] = useState([]);
@@ -102,6 +107,36 @@ export default function HorizontalLinearStepper() {
 
   return (
     <Box sx={{ width: "100%" }}>
+      <div role="presentation">
+        <Breadcrumbs aria-label="breadcrumb">
+          <Link
+            underline="hover"
+            sx={{ display: "flex", alignItems: "center" }}
+            color="inherit"
+            href="/"
+          >
+            <HomeIcon sx={{ mr: 0.5 }} fontSize="inherit" />
+            MUI
+          </Link>
+          <Link
+            underline="hover"
+            sx={{ display: "flex", alignItems: "center" }}
+            color="inherit"
+            href="/material-ui/getting-started/installation/"
+          >
+            <WhatshotIcon sx={{ mr: 0.5 }} fontSize="inherit" />
+            Core
+          </Link>
+          <Typography
+            sx={{ display: "flex", alignItems: "center" }}
+            color="text.primary"
+          >
+            <GrainIcon sx={{ mr: 0.5 }} fontSize="inherit" />
+            Breadcrumb
+          </Typography>
+        </Breadcrumbs>
+      </div>
+
       <Stepper activeStep={activeStep}>
         {steps.map((label, index) => {
           const stepProps = {};
