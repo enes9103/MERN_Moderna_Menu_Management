@@ -48,11 +48,11 @@ const QRCode = () => {
       <Title>Menu QR Code</Title>
       <Box sx={{ display: "flex" }}>
         <CardMedia
-        component="img"
-        sx={{ width: 180 }}
-        image={`data:image/png;base64,${qrCodeUrl}`}
-        alt="Live from space album cover"
-      />
+          component="img"
+          sx={{ width: 180 }}
+          image={`data:image/png;base64,${qrCodeUrl}`}
+          alt="Live from space album cover"
+        />
 
         <Box sx={{ display: "flex", flexDirection: "column" }}>
           <CardContent sx={{ flex: "1 0 auto" }}>
