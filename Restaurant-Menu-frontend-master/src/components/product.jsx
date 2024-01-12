@@ -1,7 +1,21 @@
 import React, { useState, useRef } from "react";
 import axios from "axios";
 import Box from "@mui/material/Box";
+import Card from "@mui/material/Card";
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
 import Grid from "@mui/material/Grid";
+import Typography from "@mui/material/Typography";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
+import Autocomplete from "@mui/material/Autocomplete";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemText from "@mui/material/ListItemText";
+import IconButton from "@mui/material/IconButton";
+import ListItemAvatar from "@mui/material/ListItemAvatar";
+import DeleteIcon from "@mui/icons-material/Delete";
+import ListIcon from "@mui/icons-material/List";
 
 const Product = ({ allData, fetchProducts }) => {
   const { menus, categories, products } = allData;
@@ -42,75 +56,114 @@ const Product = ({ allData, fetchProducts }) => {
     }
   };
 
+  const defaultProps = {
+    options: categories,
+    getOptionLabel: (option) => option.category,
+  };
+
+  const [value, setValue] = useState(null);
+
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <Grid container spacing={1}>
+      <Grid container spacing={2}>
         <Grid item xs={6}>
-          <div className="subcat-form-container">
-            <h1>Creat Product</h1>
-            <form
-              className="cat-edit-form2"
-              onSubmit={handleCreateProduct}
-              ref={form}
-            >
-              <div className="username">
-                <label className="About_username">Product name:</label> <br />
-                <input
-                  className="subcat-edit-input"
-                  type="text"
-                  id="username"
-                  placeholder="Product name"
-                  name="product"
-                  value={product.product}
-                  onChange={handleProductChange}
-                />
-              </div>
-              <div>
-                <label className="About_username">Category name:</label>
-                <select
-                  id="category"
-                  name="categoryId"
-                  value={product.categoryId}
-                  onChange={handleProductChange}
-                >
-                  <option value="">Select a category...</option>
-                  {categories.map((category, i) => (
-                    <option key={i} value={category._id}>
-                      {category.category}
-                    </option>
-                  ))}
-                </select>
-              </div>
-              <div className="username">
-                <label className="About_username">Product Price:</label> <br />
-                <input
-                  className="subcat-edit-input"
-                  type="text"
-                  id="username"
-                  placeholder="Price"
-                  name="price"
-                  value={product.price}
-                  onChange={handleProductChange}
-                />
-              </div>
+          <Box
+            component="form"
+            sx={{}}
+            onSubmit={handleCreateProduct}
+            ref={form}
+            noValidate
+            autoComplete="off"
+          >
+            <Card sx={{ minWidth: 275, padding: "0 16px 16px 16px" }}>
+              <CardContent>
+                <Grid item xs={12} md={6}>
+                  <Typography variant="h6" component="div">
+                    Creat Product
+                  </Typography>
 
-              <button className="subcat-edit-button" type="submit">
-                Create
-              </button>
-            </form>
-          </div>
+                  <TextField
+                    type="text"
+                    id="username"
+                    label="Product Name"
+                    variant="standard"
+                    name="product"
+                    fullWidth
+                    value={product.product}
+                    onChange={handleProductChange}
+                  />
+
+                  <Autocomplete
+                    {...defaultProps}
+                    id="category"
+                    clearOnEscape
+                    name="categoryId"
+                    value={product.categoryId}
+                    onChange={handleProductChange}
+                    renderInput={(params) => (
+                      <TextField
+                        {...params}
+                        label="Select Category"
+                        variant="standard"
+                        value={params._id}
+                      />
+                    )}
+                  />
+
+                  <TextField
+                    type="text"
+                    id="username"
+                    label="Product Price"
+                    variant="standard"
+                    name="price"
+                    fullWidth
+                    value={product.price}
+                    onChange={handleProductChange}
+                  />
+                </Grid>
+              </CardContent>
+              <CardActions>
+                <Button
+                  variant="contained"
+                  type="submit"
+                  sx={{ marginLeft: "auto" }}
+                >
+                  Create Product
+                </Button>
+              </CardActions>
+            </Card>
+          </Box>
         </Grid>
         <Grid item xs={6}>
-          <div className="list-category">
-            <h3 className="list1">list of Products</h3>
+          <Card sx={{ minWidth: 275, padding: "0 16px" }}>
+            <CardContent>
+              <Grid md={12}>
+                <Typography variant="h6" component="div">
+                  List of Products
+                </Typography>
 
-            {products.map((item, i) => (
-              <div className="list2">
-                <p key={i}>{item.product}</p>
-                <p> Price: {item.price} $</p>
-              </div>
-            ))}
-          </div>
+                <List>
+                  {products.map((item, i) => (
+                    <ListItem
+                      key={i}
+                      secondaryAction={
+                        <IconButton edge="end" aria-label="delete">
+                          <DeleteIcon />
+                        </IconButton>
+                      }
+                      sx={{ paddingBottom: "0" }}
+                    >
+                      <ListItemAvatar>
+                        <ListIcon />
+                      </ListItemAvatar>
+                      <ListItemText primary={item.product} />
+                      <ListItemText primary={item.price} />
+                    </ListItem>
+                  ))}
+                </List>
+              </Grid>
+            </CardContent>
+          </Card>
         </Grid>
       </Grid>
     </Box>
