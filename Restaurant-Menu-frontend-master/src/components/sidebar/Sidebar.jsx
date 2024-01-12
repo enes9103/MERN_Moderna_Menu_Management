@@ -31,11 +31,11 @@ export const mainSidebarListItems = (
       </ListItemIcon>
       <ListItemText primary="Customers" />
     </ListItemButton>
-    <ListItemButton>
+    <ListItemButton component={Link} to="/dashboard/user-list">
       <ListItemIcon>
         <BarChartIcon />
       </ListItemIcon>
-      <ListItemText primary="Reports" />
+      <ListItemText primary="Activate User List" />
     </ListItemButton>
     <ListItemButton>
       <ListItemIcon>

@@ -1,5 +1,5 @@
 import * as React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { styled, createTheme, ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import MuiDrawer from "@mui/material/Drawer";
@@ -20,8 +20,9 @@ import {
   mainSidebarListItems,
   secondarySidebarListItems,
 } from "../sidebar/Sidebar";
-import Dashboard from "../../pages/dashboard/Dashboard";
-import MenuCreator from "../../pages/menuCreator/MenuCreator";
+import Dashboard from "../../pages/dashboard/dashboard";
+import MenuCreator from "../../pages/menuCreator/menuCreator";
+import UserList from "../../pages/userList/userList";
 
 function Copyright(props) {
   return (
@@ -171,6 +172,7 @@ export default function DashboardLayout() {
             <Routes>
               <Route path="/" element={<Dashboard />} />
               <Route path="/menu-creator" element={<MenuCreator />} />
+              <Route path="/user-list" element={<UserList />} />
             </Routes>
             <Copyright sx={{ pt: 4 }} />
           </Container>

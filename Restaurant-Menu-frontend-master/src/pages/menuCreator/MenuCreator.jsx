@@ -7,7 +7,7 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import "./MenuCreator.css";
+import "./menuCreator.css";
 import Category from "../../components/category.jsx";
 import Product from "../../components/product.jsx";
 import Menu from "../../components/menu.jsx";
@@ -107,7 +107,7 @@ export default function MenuCreator() {
 
   return (
     <Box sx={{ width: "100%" }}>
-      <div role="presentation">
+      {/* <div role="presentation">
         <Breadcrumbs aria-label="breadcrumb">
           <Link
             underline="hover"
@@ -135,7 +135,19 @@ export default function MenuCreator() {
             Breadcrumb
           </Typography>
         </Breadcrumbs>
-      </div>
+      </div> */}
+
+      <Box className="step-title" sx={{ mb: 3 }}>
+        <div className="step-content">
+          <h2>
+            {activeStep === 0
+              ? "Categories"
+              : activeStep === 1
+              ? "Products"
+              : "Menus"}
+          </h2>
+        </div>
+      </Box>
 
       <Stepper activeStep={activeStep}>
         {steps.map((label, index) => {
@@ -169,22 +181,6 @@ export default function MenuCreator() {
       ) : (
         <React.Fragment>
           <Typography sx={{ mt: 2, mb: 1 }}>
-            <Box className="step-title">
-              <div className="step-content">
-                <h2>
-                  {activeStep === 0
-                    ? "Categories"
-                    : activeStep === 1
-                    ? "Products"
-                    : "Menus"}
-                </h2>
-              </div>
-            </Box>
-
-            <button className="subcat-edit-button1">
-              <a href="/userList">User activating list</a>
-            </button>
-
             {activeStep === 0 ? (
               <Category allData={allData} fetchCategories={fetchCategories} />
             ) : activeStep === 1 ? (
