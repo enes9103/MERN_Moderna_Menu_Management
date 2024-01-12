@@ -149,7 +149,7 @@ const Menu = ({ allData, fetchMenus }) => {
 
                 <List>
                   {menus.map((menu, i) => (
-                    <Link to={`/menuId/${menu._id}`} key={i}>
+                    <Link to={`/dashboard/menuId/${menu._id}`} key={i}>
                       <ListItem
                         key={i}
                         secondaryAction={

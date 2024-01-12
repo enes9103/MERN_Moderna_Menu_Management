@@ -3,9 +3,7 @@ import "./App.css";
 import React from "react";
 import Home from "./pages/home/home.jsx";
 import Login from "./pages/login/login.jsx";
-import MenuDetails from "./pages/menuDetails/menuDetails.jsx";
 import UserList from "./pages/userList/userList.jsx";
-import Menu from "./pages/menu/menu.js";
 import DashboardLayout from "./components/layout/DashboardLayout.jsx";
 
 function App() {
@@ -17,8 +15,6 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/user-list" element={<UserList />} />
           <Route path="/" element={<Login />} />
-          <Route path="/menuId/:id" element={<MenuDetails />} />
-          <Route path="/menu/qr/:id" element={<Menu />} />
         </Routes>
       </div>
     </BrowserRouter>

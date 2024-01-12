@@ -23,6 +23,8 @@ import {
 import Dashboard from "../../pages/dashboard/dashboard";
 import MenuCreator from "../../pages/menuCreator/menuCreator";
 import UserList from "../../pages/userList/userList";
+import Menu from "../menu";
+import MenuDetails from "../../pages/menuDetails/menuDetails";
 
 function Copyright(props) {
   return (
@@ -173,6 +175,8 @@ export default function DashboardLayout() {
               <Route path="/" element={<Dashboard />} />
               <Route path="/menu-creator" element={<MenuCreator />} />
               <Route path="/user-list" element={<UserList />} />
+              <Route path="/menuId/:id" element={<MenuDetails />} />
+              <Route path="/menu/qr/:id" element={<Menu />} />
             </Routes>
             <Copyright sx={{ pt: 4 }} />
           </Container>
