@@ -1,14 +1,12 @@
 import * as React from "react";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
-import Chart from "./Chart";
-import Deposits from "./Deposits";
-import Orders from "./Orders";
-import Menus from "./Menus";
-
+import Chart from "../../components/Chart";
+import Deposits from "../../components/Deposits";
+import Orders from "../../components/Orders";
+import Menus from "../../components/Menus";
 
 export default function Dashboard() {
-
   return (
     <Grid container spacing={3}>
       {/* Menus Card */}
