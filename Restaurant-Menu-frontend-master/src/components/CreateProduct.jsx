@@ -17,13 +17,14 @@ import ListItemAvatar from "@mui/material/ListItemAvatar";
 import DeleteIcon from "@mui/icons-material/Delete";
 import ListIcon from "@mui/icons-material/List";
 
-const Product = ({ allData, fetchProducts }) => {
+const CreateProduct = ({ allData, fetchProducts }) => {
   const { menus, categories, products } = allData;
   const [product, setProduct] = useState({
     product: "",
     price: "",
     categoryId: "",
   });
+
   const form = useRef();
 
   const handleProductChange = (event) => {
@@ -56,13 +57,6 @@ const Product = ({ allData, fetchProducts }) => {
     }
   };
 
-  const defaultProps = {
-    options: categories,
-    getOptionLabel: (option) => option.category,
-  };
-
-  const [value, setValue] = useState(null);
-
   return (
     <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={2}>
@@ -93,22 +87,19 @@ const Product = ({ allData, fetchProducts }) => {
                     onChange={handleProductChange}
                   />
 
-                  <Autocomplete
-                    {...defaultProps}
+                  <select
                     id="category"
-                    clearOnEscape
                     name="categoryId"
                     value={product.categoryId}
                     onChange={handleProductChange}
-                    renderInput={(params) => (
-                      <TextField
-                        {...params}
-                        label="Select Category"
-                        variant="standard"
-                        value={params._id}
-                      />
-                    )}
-                  />
+                  >
+                    <option value="">Select a category...</option>
+                    {categories.map((category, i) => (
+                      <option key={i} value={category._id}>
+                        {category.category}
+                      </option>
+                    ))}
+                  </select>
 
                   <TextField
                     type="text"
@@ -170,4 +161,4 @@ const Product = ({ allData, fetchProducts }) => {
   );
 };
 
-export default Product;
+export default CreateProduct;

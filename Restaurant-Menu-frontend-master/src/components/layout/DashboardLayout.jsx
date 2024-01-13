@@ -23,7 +23,7 @@ import {
 import Dashboard from "../../pages/dashboard/dashboard";
 import MenuCreator from "../../pages/menuCreator/MenuCreator";
 import UserList from "../../pages/userList/userList";
-import Menu from "../menu";
+import Menu from "../CreateMenu";
 import MenuDetails from "../../pages/menuDetails/menuDetails";
 
 function Copyright(props) {
