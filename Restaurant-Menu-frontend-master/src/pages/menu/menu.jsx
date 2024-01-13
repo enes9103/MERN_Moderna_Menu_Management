@@ -19,10 +19,6 @@ function Menu() {
         fetchMenus(); // Initial fetch when component mounts
       }, []); 
 
-
-   
-
-
       return (
         <div>
           {menu.categories &&

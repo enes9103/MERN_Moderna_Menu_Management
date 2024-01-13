@@ -104,7 +104,7 @@ const Category = ({ allData, fetchCategories }) => {
         <Grid item xs={6}>
           <Card sx={{ minWidth: 275, padding: "0 16px" }}>
             <CardContent>
-              <Grid md={12}>
+              <Box>
                 <Typography variant="h6" component="div">
                   List of Categories
                 </Typography>
@@ -127,7 +127,7 @@ const Category = ({ allData, fetchCategories }) => {
                     </ListItem>
                   ))}
                 </List>
-              </Grid>
+              </Box>
             </CardContent>
           </Card>
         </Grid>

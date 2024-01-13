@@ -25,17 +25,17 @@ export const mainSidebarListItems = (
       </ListItemIcon>
       <ListItemText primary="Orders" />
     </ListItemButton>
-    <ListItemButton>
+    <ListItemButton component={Link} to="/dashboard/user-list">
       <ListItemIcon>
         <PeopleIcon />
       </ListItemIcon>
       <ListItemText primary="Customers" />
     </ListItemButton>
-    <ListItemButton component={Link} to="/dashboard/user-list">
+    <ListItemButton >
       <ListItemIcon>
         <BarChartIcon />
       </ListItemIcon>
-      <ListItemText primary="Activate User List" />
+      <ListItemText primary="Analitics" />
     </ListItemButton>
     <ListItemButton>
       <ListItemIcon>

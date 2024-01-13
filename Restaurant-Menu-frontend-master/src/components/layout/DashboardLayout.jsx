@@ -23,7 +23,7 @@ import {
 import Dashboard from "../../pages/dashboard/dashboard";
 import MenuCreator from "../../pages/menuCreator/MenuCreator";
 import UserList from "../../pages/userList/userList";
-import Menu from "../CreateMenu";
+import Menu from "../../pages/menu/menu";
 import MenuDetails from "../../pages/menuDetails/menuDetails";
 import Logo from "../../asset/logo-without-bg.png";
 
@@ -131,6 +131,7 @@ export default function DashboardLayout() {
             >
               Dashboard
             </Typography>
+
             <IconButton color="inherit">
               <Badge badgeContent={4} color="secondary">
                 <NotificationsIcon />
