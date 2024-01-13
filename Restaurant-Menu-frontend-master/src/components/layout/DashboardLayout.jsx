@@ -21,7 +21,7 @@ import {
   secondarySidebarListItems,
 } from "../sidebar/Sidebar";
 import Dashboard from "../../pages/dashboard/dashboard";
-import MenuCreator from "../../pages/menuCreator/menuCreator";
+import MenuCreator from "../../pages/menuCreator/MenuCreator";
 import UserList from "../../pages/userList/userList";
 import Menu from "../menu";
 import MenuDetails from "../../pages/menuDetails/menuDetails";

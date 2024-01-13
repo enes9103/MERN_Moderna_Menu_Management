@@ -7,7 +7,7 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import "./menuCreator.css";
+import "./MenuCreator.css";
 import Category from "../../components/category.jsx";
 import Product from "../../components/product.jsx";
 import Menu from "../../components/menu.jsx";
