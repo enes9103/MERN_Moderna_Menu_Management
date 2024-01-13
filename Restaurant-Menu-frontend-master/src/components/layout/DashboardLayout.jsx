@@ -25,6 +25,7 @@ import MenuCreator from "../../pages/menuCreator/MenuCreator";
 import UserList from "../../pages/userList/userList";
 import Menu from "../CreateMenu";
 import MenuDetails from "../../pages/menuDetails/menuDetails";
+import Logo from "../../asset/logo-without-bg.png";
 
 function Copyright(props) {
   return (
@@ -142,10 +143,12 @@ export default function DashboardLayout() {
             sx={{
               display: "flex",
               alignItems: "center",
-              justifyContent: "flex-end",
+              justifyContent: "space-between",
               px: [1],
             }}
           >
+            <img src={Logo} alt="Logo" width={200} height={60} />
+
             <IconButton onClick={toggleDrawer}>
               <ChevronLeftIcon />
             </IconButton>
