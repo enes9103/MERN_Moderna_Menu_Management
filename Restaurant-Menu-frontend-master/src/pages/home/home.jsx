@@ -1,6 +1,7 @@
 import React from "react";
 import Logo from "../../asset/logo-without-bg.png";
 import PurchasingPlans from "../../components/PurchasingPlans";
+import FAQAccordion from "../../components/FAQAccordion";
 
 function Home() {
   return (
@@ -20,6 +21,8 @@ function Home() {
       <img src={Logo} alt="Logo" width={400} />
 
       <PurchasingPlans />
+
+      <FAQAccordion />
     </div>
   );
 }
