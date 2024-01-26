@@ -35,7 +35,7 @@ const CreateProduct = ({ allData, fetchProducts }) => {
   const handleCreateProduct = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post("http://localhost:5000/product", {
+      const response = await axios.post("http://localhost:8080/product", {
         product: product.product,
         price: product.price,
         categoryId: product.categoryId,

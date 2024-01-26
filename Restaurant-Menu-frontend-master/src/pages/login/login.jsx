@@ -17,7 +17,7 @@ function Login() {
     setError(null);
 
     try {
-      const response = await fetch("http://localhost:5000/user/signup", {
+      const response = await fetch("http://localhost:8080/user/signup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, password, email }),
@@ -64,7 +64,7 @@ function Login() {
     event.preventDefault();
     setError(null);
     try {
-      const response = await fetch("http://localhost:5000/user/login", {
+      const response = await fetch("http://localhost:8080/user/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
@@ -96,7 +96,10 @@ function Login() {
   };
 
   return (
-    <div className={`auth-container ${isActive ? "active" : ""}`} id="container">
+    <div
+      className={`auth-container ${isActive ? "active" : ""}`}
+      id="container"
+    >
       {/* Sign Up Form */}
       <div className="form-container sign-up">
         <form onSubmit={handleSignup}>

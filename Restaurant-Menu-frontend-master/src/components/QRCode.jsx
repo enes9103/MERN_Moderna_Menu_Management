@@ -18,7 +18,7 @@ const QRCode = () => {
   useEffect(() => {
     // Fetch the QR code image URL from the server
     axios
-      .get(`http://localhost:5000/menu/qrCode/${menuId.id}`)
+      .get(`http://localhost:8080/menu/qrCode/${menuId.id}`)
       .then((response) => {
         setQrCodeUrl(response.data);
         console.log(qrCodeUrl);
@@ -31,7 +31,7 @@ const QRCode = () => {
   const fetchMenus = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:5000/menu/${menuId.id}`
+        `http://localhost:8080/menu/${menuId.id}`
       );
       setMenu(response.data);
     } catch (error) {

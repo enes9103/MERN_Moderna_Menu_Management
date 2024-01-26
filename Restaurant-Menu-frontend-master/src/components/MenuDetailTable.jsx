@@ -27,7 +27,7 @@ export default function MenuDetailTable() {
   useEffect(() => {
     // Fetch the QR code image URL from the server
     axios
-      .get(`http://localhost:5000/menu/qrCode/${menuId.id}`)
+      .get(`http://localhost:8080/menu/qrCode/${menuId.id}`)
       .then((response) => {
         setQrCodeUrl(response.data);
         console.log(qrCodeUrl);
@@ -40,7 +40,7 @@ export default function MenuDetailTable() {
   const fetchMenus = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:5000/menu/${menuId.id}`
+        `http://localhost:8080/menu/${menuId.id}`
       );
       setMenu(response.data);
     } catch (error) {
@@ -61,7 +61,7 @@ export default function MenuDetailTable() {
     console.log(id);
     event.preventDefault();
     try {
-      const response = await fetch(`http://localhost:5000/product/${id}`, {
+      const response = await fetch(`http://localhost:8080/product/${id}`, {
         method: "put",
         headers: {
           "Content-Type": "application/json",

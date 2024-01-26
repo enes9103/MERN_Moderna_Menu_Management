@@ -76,7 +76,7 @@ export default function MenuCreator() {
 
   const fetchMenus = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/menu");
+      const response = await axios.get("http://localhost:8080/menu");
       setMenus(response.data);
     } catch (error) {
       console.error(error);
@@ -84,7 +84,7 @@ export default function MenuCreator() {
   };
   const fetchProducts = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/product");
+      const response = await axios.get("http://localhost:8080/product");
       setProducts(response.data);
     } catch (error) {
       console.error(error);
@@ -93,7 +93,7 @@ export default function MenuCreator() {
 
   const fetchCategories = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/category");
+      const response = await axios.get("http://localhost:8080/category");
       setCategories(response.data);
     } catch (error) {
       console.error(error);

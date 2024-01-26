@@ -27,7 +27,7 @@ export const getAllMenus = async (req, res) => {
   export const getQRcode = async (req, res) => {
     try {
       const menuId = req.params.id;
-      const qrCode = qr.image(`http://localhost:5000/menu/qr/${menuId}`, { type: 'png' });
+      const qrCode = qr.image(`http://localhost:8080/menu/qr/${menuId}`, { type: 'png' });
       
       // Encode the image as base64
       const imageBuffer = [];

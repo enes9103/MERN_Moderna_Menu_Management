@@ -39,7 +39,7 @@ const Menu = ({ allData, fetchMenus }) => {
 
     event.preventDefault();
     try {
-      const response = await axios.post("http://localhost:5000/menu", {
+      const response = await axios.post("http://localhost:8080/menu", {
         menu: menu.menu,
         products: menu.products.map((item) => item.value),
         categories: menu.categories.map((item) => item.value),

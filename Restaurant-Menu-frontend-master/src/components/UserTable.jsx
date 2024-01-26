@@ -20,7 +20,7 @@ export default function UserTable() {
 
   const fetchUsers = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/user/");
+      const response = await axios.get("http://localhost:8080/user/");
       const filteredUsers = response.data.filter(
         (user) => user.role === "user"
       );
@@ -38,7 +38,7 @@ export default function UserTable() {
     event.preventDefault();
     try {
       const response = await axios.post(
-        `http://localhost:5000/user/activate/${id}`
+        `http://localhost:8080/user/activate/${id}`
       );
       setActivate(response.data);
       fetchUsers();

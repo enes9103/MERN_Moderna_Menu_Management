@@ -32,7 +32,7 @@ const Category = ({ allData, fetchCategories }) => {
   const handleCreateCategory = async (event) => {
     event.preventDefault();
     try {
-      const response = await fetch("http://localhost:5000/category", {
+      const response = await fetch("http://localhost:8080/category", {
         method: "post",
         headers: {
           "Content-Type": "application/json",
