@@ -9,8 +9,8 @@ export const signup = async (req, res) => {
     const { username, email, password } = req.body;
     console.log("req.body:", req.body);
 
-    if(!password || password.length < 6 ){
-        res.status(400).json({ message: "Password less than 6 characters" })
+    if (!password || password.length < 6) {
+      res.status(400).json({ message: "Password less than 6 characters" });
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
@@ -19,7 +19,7 @@ export const signup = async (req, res) => {
       email,
       password: hashedPassword,
     });
-   
+    
 
     const maxAge = 3 * 60 * 60;
 
@@ -36,9 +36,13 @@ export const signup = async (req, res) => {
     });
     res.status(201).json({
       message: "User successfully created",
-      userId: user._id,
       token: token,
-      role: user.role,
+      user: {
+        userId: user._id,
+        role: user.role,
+        name: user.username,
+        email: user.email,
+      },
     });
   } catch (error) {
     res.status(400).json({
@@ -81,9 +85,13 @@ export const login = async (req, res) => {
           });
           res.status(201).json({
             message: "User successfully Logged in",
-            user: user._id,
             token: token,
-            role: user.role,
+            user: {
+              userId: user._id,
+              role: user.role,
+              name: user.username,
+              email: user.email,
+            },
           });
         } else {
           res.status(400).json({ message: "Login not succesful" });
@@ -110,7 +118,7 @@ export const activateUser = async (req, res) => {
 
     if (!user) {
       return res.status(404).json({
-        message: 'User not found',
+        message: "User not found",
       });
     }
 
@@ -120,23 +128,21 @@ export const activateUser = async (req, res) => {
     await user.save();
 
     res.status(200).json({
-      message: 'User activated successfully',
+      message: "User activated successfully",
     });
   } catch (error) {
     res.status(400).json({
-      message: 'Error activating user',
+      message: "Error activating user",
       error: error.message,
     });
   }
 };
 
-export const getAllUser = async (req,res)=>{
-   try{
-
+export const getAllUser = async (req, res) => {
+  try {
     const users = await User.find();
     res.status(200).json(users);
-   }catch(error){
+  } catch (error) {
     res.status(500).json({ message: "Internal Server Error" });
-   }
- 
+  }
 };
