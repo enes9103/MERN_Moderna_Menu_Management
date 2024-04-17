@@ -4,7 +4,6 @@ import fs from 'fs';
 import path from 'path';
 
 export const getAllMenus = async (req, res) => {
-
     try {
         const menus = await Menu.find()
         .populate({
@@ -24,6 +23,7 @@ export const getAllMenus = async (req, res) => {
         res.status(500).json({ error: err });
       }
   };
+
   export const getQRcode = async (req, res) => {
     try {
       const menuId = req.params.id;
@@ -67,8 +67,6 @@ export const getAllMenus = async (req, res) => {
     }
 }
 
-
-
   export const createMenu = async (req, res) => {
     try {
       console.log("sdasfas");
@@ -85,14 +83,10 @@ export const getAllMenus = async (req, res) => {
         products: productsArray,
         categories: categoriesArray, 
       });
-  
-      
+
       await newMenu.save();
-  
       res.status(201).json(newMenu);
     } catch (error) {
       res.status(400).json({ message: error.message });
     }
   };
-
- 
