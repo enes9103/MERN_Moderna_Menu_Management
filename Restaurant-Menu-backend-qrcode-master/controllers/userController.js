@@ -20,9 +20,7 @@ export const signup = async (req, res) => {
       password: hashedPassword,
     });
     
-
     const maxAge = 3 * 60 * 60;
-
     const token = jwt.sign(
       { id: user._id, email: user.email, role: user.role },
       jwtSecret,
@@ -124,7 +122,6 @@ export const activateUser = async (req, res) => {
 
     // Mark the user as activated
     user.activate = true; // Set the activate field to null or remove it, depending on your schema
-
     await user.save();
 
     res.status(200).json({
