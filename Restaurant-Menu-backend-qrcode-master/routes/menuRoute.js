@@ -8,16 +8,11 @@ import {
     getQRcode,
     getMenuById,
     createMenu,
-  
-    
 } from "../controllers/menuController.js";
-
 
 router.get('/', getAllMenus);
 router.get('/qrCode/:id', getQRcode);
 router.get('/:id',getMenuById);
 router.post('/',createMenu);
-
-
 
 export default router
