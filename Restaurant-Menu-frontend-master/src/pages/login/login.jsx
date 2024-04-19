@@ -5,7 +5,6 @@ import "./login.css";
 
 function Login() {
   const [isActive, setIsActive] = useState(false);
-
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
@@ -36,10 +35,6 @@ function Login() {
       alert(
         "You have registered successfully, we will send you an email for acceptance"
       );
-
-      //// the email part where we add email js and the structure of the email
-
-      ///////
       window.location.href = "/home";
 
       console.log("Registration successful");
@@ -58,8 +53,8 @@ function Login() {
   const handleLoginClick = () => {
     setIsActive(false);
   };
+  
   //   login function
-
   const handleLogin = async (event) => {
     event.preventDefault();
     setError(null);
