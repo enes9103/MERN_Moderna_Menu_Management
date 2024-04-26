@@ -51,8 +51,6 @@ export default function MenuCreator() {
 
   const handleSkip = () => {
     if (!isStepOptional(activeStep)) {
-      // You probably want to guard against something like this,
-      // it should never occur unless someone's actively trying to break something.
       throw new Error("You can't skip a step that isn't optional.");
     }
 
@@ -107,36 +105,6 @@ export default function MenuCreator() {
 
   return (
     <Box sx={{ width: "100%" }}>
-      {/* <div role="presentation">
-        <Breadcrumbs aria-label="breadcrumb">
-          <Link
-            underline="hover"
-            sx={{ display: "flex", alignItems: "center" }}
-            color="inherit"
-            href="/"
-          >
-            <HomeIcon sx={{ mr: 0.5 }} fontSize="inherit" />
-            MUI
-          </Link>
-          <Link
-            underline="hover"
-            sx={{ display: "flex", alignItems: "center" }}
-            color="inherit"
-            href="/material-ui/getting-started/installation/"
-          >
-            <WhatshotIcon sx={{ mr: 0.5 }} fontSize="inherit" />
-            Core
-          </Link>
-          <Typography
-            sx={{ display: "flex", alignItems: "center" }}
-            color="text.primary"
-          >
-            <GrainIcon sx={{ mr: 0.5 }} fontSize="inherit" />
-            Breadcrumb
-          </Typography>
-        </Breadcrumbs>
-      </div> */}
-
       <Box className="step-title" sx={{ mb: 3 }}>
         <div className="step-content">
           <h2>
