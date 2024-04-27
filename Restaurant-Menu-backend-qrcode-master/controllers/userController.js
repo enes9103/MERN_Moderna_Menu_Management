@@ -52,7 +52,6 @@ export const signup = async (req, res) => {
 
 export const login = async (req, res) => {
   const { email, password } = req.body;
-  // Check if username and password is provided
   if (!email || !password) {
     return res.status(400).json({
       message: "Username or Password not present",
@@ -120,8 +119,7 @@ export const activateUser = async (req, res) => {
       });
     }
 
-    // Mark the user as activated
-    user.activate = true; // Set the activate field to null or remove it, depending on your schema
+    user.activate = true;
     await user.save();
 
     res.status(200).json({
