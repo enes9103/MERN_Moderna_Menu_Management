@@ -52,7 +52,6 @@ const tiers = [
   },
 ];
 
-// TODO remove, this demo shouldn't need to reset the theme.
 const defaultTheme = createTheme();
 
 export default function PurchasingPlans() {
@@ -91,7 +90,6 @@ export default function PurchasingPlans() {
       <Container maxWidth="md" component="main">
         <Grid container spacing={5} alignItems="flex-end">
           {tiers.map((tier) => (
-            // Enterprise card is full width at sm breakpoint
             <Grid
               item
               key={tier.title}
