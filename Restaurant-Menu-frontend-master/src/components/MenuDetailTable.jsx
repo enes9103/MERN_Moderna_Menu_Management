@@ -30,7 +30,6 @@ export default function MenuDetailTable() {
       .get(`http://localhost:8080/menu/qrCode/${menuId.id}`)
       .then((response) => {
         setQrCodeUrl(response.data);
-        console.log(qrCodeUrl);
       })
       .catch((error) => {
         console.error("Error fetching QR code:", error);
