@@ -43,7 +43,6 @@ const Category = ({ allData, fetchCategories }) => {
       });
 
       if (response.ok) {
-        // Handle success, e.g., clear form fields or show a success message
         setCategory({
           category: "",
         });
