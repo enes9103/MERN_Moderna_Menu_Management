@@ -7,7 +7,7 @@ export default function Menus() {
   return (
     <React.Fragment>
       <Title>Recent Menus</Title>
-
+      
       <Link color="primary" href="dashboard/menu-creator">
         Create New Menu
       </Link>
