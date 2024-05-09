@@ -1,1 +1,2 @@
 MERN_Moderna_Menu_Management
+Base project completed
