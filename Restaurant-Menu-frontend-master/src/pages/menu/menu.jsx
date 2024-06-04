@@ -18,7 +18,7 @@ function Menu() {
   };
 
   useEffect(() => {
-    fetchMenus(); // Initial fetch when component mounts
+    fetchMenus();
   }, []);
 
   return (
