@@ -20,11 +20,8 @@ function Home() {
         Application
       </h2>
       <img src={Logo} alt="Logo" width={400} />
-
       <PurchasingPlans />
-
       <FAQAccordion />
-
     </div>
   );
 }
